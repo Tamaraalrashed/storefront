@@ -13,12 +13,13 @@ const initialState={
 
 const productsReducer=(state=initialState,action)=>{
     let {type, payload}=action;
-    console.log('state',state);
+    console.log('state',payload);
     switch (type) {
 
         case 'ACTIVE':
+            // return state.map(item => payload.normalizedName===item.categoryAssociation ? { ...item } : item);
          let activeProducts=state.products.filter(item =>payload.normalizedName===item.categoryAssociation);
-            return activeProducts;
+            return  {...state, activeProducts };
         
         default :
         return state;

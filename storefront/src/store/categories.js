@@ -1,7 +1,7 @@
 let initialState = {
     categories: [
-        { normalizedName: 'electronics',displayName:'Electronics', description:'this is the electronics department'},
-        { normalizedName: 'food',displayName:'Food', description:'this is the food department'},
+        { normalizedName: 'electronics',displayName:'ELECTRONICS', description:'this is the electronics department'},
+        { normalizedName: 'food',displayName:'FOOD', description:'this is the food department'},
     ],
     activeCategory:null
     
@@ -16,7 +16,7 @@ const categoriesReducer=(state = initialState, action) => {
 
       return{
     categories: state.categories,
-    activeCategory:payload.normalizedName
+    activeCategory:payload
       };
 
     default :

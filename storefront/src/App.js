@@ -9,9 +9,10 @@ function App() {
   return (
     <>
 <Header/>
-<Footer/>
+
 <Categories/>
 <Products/>
+<Footer/>
 </>
   );
 }

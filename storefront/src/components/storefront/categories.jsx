@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {active} from '../../store/categories';
-
+import {Button,Paper} from '@material-ui/core';
 
 
 
@@ -12,12 +12,15 @@ const Categories= (props)=>{
           <ul>
 
             {props.totalCategories.categories.map(item=>{
-             
+            //   console.log('item', item);
                 return(
-                 
-                    <button key={item.displayName} onClick={() => props.active(item)}>
-                    {item.displayName}
-                    </button>
+                   
+                // <p>hello</p>
+                    <Button variant="text" color="primary" key={item.displayName} 
+                     onClick={() => props.active(item)}
+                    >
+                    {item.displayName} 
+                    </Button>
                     ) 
                 })
             }
