@@ -1,54 +1,47 @@
 import React from 'react';
 import { connect } from 'react-redux';
+// import { Link } from 'react-router-dom';
 
+//for styling
+import { Button,Typography,AppBar,Toolbar,Grid} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
-import {Button,Paper,Link,Tab} from '@material-ui/core';
+
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    '& > *': {
-      margin: theme.spacing(1),
-      width: theme.spacing(25),
-      height: theme.spacing(7),
+    toolbar: {
+      background: '#ffffff',
+      padding: theme.spacing(2),
     },
-  },
-  cart:{
-    
-  float:'right'
-  }
-}));
-const Header=(props)=>{
-  // const classes = useStyles();
-  // console.log('props for cart', props);
+    cart: {
+      alignSelf: "center",
+      textAlign: "right",
+      color: "#eee",
+    },
+    appBar: {
+      zIndex: 1000
+    },
+  }));
+  
+const Header = (props) =>{
+    const classes = useStyles();
     return (
         <>
-        <Paper> 
-        <Button variant="text" color="primary">
-          {/* <Link to="/"> */}
-            <Tab label="Tamara Store" />
-            {/* </Link> */}
-            </Button>
-        <Button variant="text" color="primary">
-          {/* <Link to="/cart"> */} 
-            <Tab label="CART({props.indexOfCart})" />
-            {/* </Link> */}
-          
-            </Button>
-        </Paper>
-        {/* <Paper className={classes.root}>
-        <h1>Tamara Store</h1>
-        <h4 className={classes.cart}>cart</h4>
-        </Paper> */}
-   
+        <AppBar className={classes.appBar} position="relative">
+        <Toolbar className={classes.toolbar}>
+        <Grid container>
+        <Grid item xs>
+        <Button ><Typography variant="h3" component="h3">OUR STORE</Typography></Button>
+        </Grid>
+        <Grid item xs className={classes.cart}>
+        <Button  >CART ({props.cartItems.indexOfCart})</Button>
+        </Grid>
+        </Grid>
+        </Toolbar>
+        </AppBar>
         </>
-      );
-
-
-
-
+    )
 }
+
 
 const mapStateToProps = (state) => ({
   cartItems: state.cartReducer
