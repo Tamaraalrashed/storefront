@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {add} from '../../store/cart';
+
 //for styling
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -21,6 +22,8 @@ const useStyles = makeStyles({
 });
 
 const Products= (props)=> {
+
+
   const classes = useStyles();
   if (props.totalProducts){
   return (

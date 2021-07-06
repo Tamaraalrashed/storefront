@@ -1,12 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {active} from '../../store/categories';
-import {Button,Paper} from '@material-ui/core';
+import { remoteData } from '../../store/actions';
+import { useDispatch, useSelector } from 'react-redux';
 
+
+
+import {Button,Paper} from '@material-ui/core';
 
 
 const Categories= (props)=>{
 //    console.log('ssssssss', props.totalCategories);
+const dispatch = useDispatch();
+const state = useSelector((state) => {
+    return {
+        totalCategories:state.categoriesReducer
+       }
+});
     return(
       <section>
           <ul>
@@ -16,7 +26,8 @@ const Categories= (props)=>{
                 return(
             
                     <Button variant="text" color="primary" key={item.displayName} 
-                     onClick={() => props.active(item)}
+                    //  onClick={() => props.active(item)}
+                    onClick={() =>dispatch(remoteData(item.normalizedName,'get',{}))}
                     >
                     {item.displayName} 
                     </Button>
