@@ -39,7 +39,7 @@ const Products= (props)=> {
           {item.name}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            {item.description}
+            {item.description} 
           </Typography>
         </CardContent>
       </CardActionArea>
@@ -102,7 +102,8 @@ const Products= (props)=> {
 
 const mapStateToProps = (state) => ({
     totalProducts: state.productsReducer.activeProducts,
-     activeCategory:state.categoriesReducer.activeCategory
+    activeCategory:state.categoriesReducer.activeCategory,
+    cartItems:state.cartReducer
 
   });
   

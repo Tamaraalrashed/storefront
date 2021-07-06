@@ -1,20 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import {add} from '../../store/cart';
+
+//for styling
+import './simpleCart.scss';
 import {Button,Paper} from '@material-ui/core';
 
 
 
 const SimpleCart= (props)=>{
-   console.log('ssssssss', props.cartItems);
+//    console.log('ssssssss', props.cartItems);
     return(
       <section>
           <ul>
-          {/* <p>{props.cartItems </p> */}
+       
             {props.cartItems.cartItems.map(item=>{
             //   console.log('item', item);
                 return(
-                <div>
+                <div className="simple-cart">
            <p>{item.name}</p>
            <Button variant="text" color="primary" key={item.displayName} 
            

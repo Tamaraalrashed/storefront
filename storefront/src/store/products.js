@@ -13,7 +13,8 @@ const initialState={
 
 const productsReducer=(state=initialState,action)=>{
     let {type, payload}=action;
-    console.log('state',payload);
+
+    // console.log('productspayload', payload);
     switch (type) {
 
         case 'ACTIVE':
