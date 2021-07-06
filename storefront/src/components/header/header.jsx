@@ -1,4 +1,6 @@
 import React from 'react';
+import { connect } from 'react-redux';
+
 import { makeStyles } from '@material-ui/core/styles';
 import {Button,Paper,Link,Tab} from '@material-ui/core';
 
@@ -19,6 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Header=(props)=>{
   // const classes = useStyles();
+  // console.log('props for cart', props);
     return (
         <>
         <Paper> 
@@ -29,8 +32,9 @@ const Header=(props)=>{
             </Button>
         <Button variant="text" color="primary">
           {/* <Link to="/cart"> */} 
-            <Tab label="CART(0)" />
+            <Tab label="CART({props.indexOfCart})" />
             {/* </Link> */}
+          
             </Button>
         </Paper>
         {/* <Paper className={classes.root}>
@@ -45,4 +49,9 @@ const Header=(props)=>{
 
 
 }
-export default Header;
+
+const mapStateToProps = (state) => ({
+  cartItems: state.cartReducer
+});
+
+export default connect(mapStateToProps)(Header);

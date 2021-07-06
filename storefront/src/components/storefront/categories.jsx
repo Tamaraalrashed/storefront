@@ -14,8 +14,7 @@ const Categories= (props)=>{
             {props.totalCategories.categories.map(item=>{
             //   console.log('item', item);
                 return(
-                   
-                // <p>hello</p>
+            
                     <Button variant="text" color="primary" key={item.displayName} 
                      onClick={() => props.active(item)}
                     >
@@ -35,6 +34,7 @@ const Categories= (props)=>{
 const mapStateToProps=(state)=>({
     totalCategories:state.categoriesReducer
 });
+
 const mapDispatchToProps={active}
 
 export default connect(mapStateToProps,mapDispatchToProps)(Categories);

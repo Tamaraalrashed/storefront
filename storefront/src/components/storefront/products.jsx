@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import {add} from '../../store/cart';
+//for styling
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -44,7 +45,7 @@ const Products= (props)=> {
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary" 
-        // onClick={() => props.active(item)}
+        onClick={() => props.add(item)}
         >
           ADD TO CART
         </Button>
@@ -102,7 +103,12 @@ const Products= (props)=> {
 const mapStateToProps = (state) => ({
     totalProducts: state.productsReducer.activeProducts,
      activeCategory:state.categoriesReducer.activeCategory
+
   });
   
-  export default connect(mapStateToProps)(Products);
+
+  const mapDispatchToProps={add}
+
+
+  export default connect(mapStateToProps,mapDispatchToProps)(Products);
 
