@@ -15,7 +15,7 @@ const categoriesReducer=(state = initialState, action) => {
     case 'ACTIVE':
 
       return{
-    categories: state.categories,
+    // categories: state.categories,
     activeCategory:payload
       };
 
